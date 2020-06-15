@@ -1,27 +1,10 @@
 {
-	"name": "react-parcel-boilerplate",
+	"name": "awesome-react-components",
 	"version": "1.0.0",
-	"description": "Template for a React project using Parcel as bundler",
-	"main": "index.js",
-	"dependencies": {
-		"react": "16.13.1",
-		"react-dom": "16.13.1"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.0.0-0",
-		"@babel/preset-env": "7.9.6",
-		"@babel/preset-typescript": "7.10.1",
-		"@types/react": "16.9.36",
-		"@types/react-dom": "16.9.8",
-		"husky": "4.2.5",
-		"lint-staged": "10.2.10",
-		"parcel-bundler": "1.12.4",
-		"prettier": "2.0.5",
-		"tslint": "6.1.2",
-		"tslint-config-prettier": "1.18.0",
-		"tslint-plugin-prettier": "2.3.0",
-		"typescript": "3.9.5"
-	},
+	"description": "An awesome collection of React components",
+	"main": "index.tsx",
+	"author": "Vinh Le <lethanhvinh95@gmail.com>, Huy Trinh <dinhhuyams@gmail.com>",
+	"license": "MIT",
 	"scripts": {
 		"dev": "parcel public/index.html --port 3009",
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -42,6 +25,23 @@
 			"git add"
 		]
 	},
-	"author": "Vinh Le <lethanhvinh95@gmail.com>",
-	"license": "MIT"
+	"dependencies": {
+		"react": "16.13.1",
+		"react-dom": "16.13.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.0.0-0",
+		"@babel/preset-env": "7.9.6",
+		"@babel/preset-typescript": "7.10.1",
+		"@types/react": "16.9.36",
+		"@types/react-dom": "16.9.8",
+		"husky": "4.2.5",
+		"lint-staged": "10.2.10",
+		"parcel-bundler": "1.12.4",
+		"prettier": "2.0.5",
+		"tslint": "6.1.2",
+		"tslint-config-prettier": "1.18.0",
+		"tslint-plugin-prettier": "2.3.0",
+		"typescript": "3.9.5"
+	}
 }
