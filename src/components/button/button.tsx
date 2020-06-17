@@ -1,13 +1,19 @@
 import * as React from 'react'
 
 export interface BaseButtonProps {
-	onClick?: React.MouseEventHandler<HTMLElement>;
 	children?: React.ReactNode;
 }
 
-const Button: React.FunctionComponent = (props: BaseButtonProps) => {
+export type NativeButtonProps = {
+	onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps &
+	Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
 
-	const {children} = props
+export type ButtonProps = NativeButtonProps
+
+const Button: React.FunctionComponent = (props: ButtonProps) => {
+
+	const {children, ...rest} = props
 
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
 		const {onClick} = props;
@@ -18,7 +24,7 @@ const Button: React.FunctionComponent = (props: BaseButtonProps) => {
 	}
 
 	return (
-		<button onClick={handleClick}>{children}</button>
+		<button onClick={handleClick} {...rest}>{children}</button>
 	)
 
 }
