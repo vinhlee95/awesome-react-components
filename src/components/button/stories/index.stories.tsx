@@ -7,4 +7,6 @@ export const defaultButton = () => <Button onClick={handleClicked}>Default Butto
 
 export const disabledButton = () => <Button disabled>Disabled Button</Button>
 
+export const htmlTypeButton = () => <Button htmlType='reset'>Reset Button</Button>
+
 export default {title: 'Button'}
