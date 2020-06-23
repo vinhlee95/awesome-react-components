@@ -1,0 +1,9 @@
+@import "mixin";
+
+$btn-prefix-cls: '#{$awesome-prefix}-btn';
+
+.#{$btn-prefix-cls} {
+  line-height: $line-height-base;
+
+  @include btn;
+}
