@@ -7,9 +7,9 @@ export const App: React.FunctionComponent = () => {
 	return (
 		<>
 			<div> Welcome</div>
-			<Button size='small'>Small</Button>
-			<Button size='middle'>Normal</Button>
-			<Button size='large'>Large</Button>
+			<Button size="small">Small</Button>
+			<Button size="middle">Normal</Button>
+			<Button size="large">Large</Button>
 		</>
 	)
 }

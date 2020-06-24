@@ -1,9 +1,9 @@
 import * as React from 'react'
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 export type ButtonHTMLType = 'submit' | 'button' | 'reset'
 
-export type SizeType = 'small' | 'middle' | 'large';
+export type SizeType = 'small' | 'middle' | 'large'
 
 export interface BaseButtonProps {
 	children?: React.ReactNode
@@ -34,28 +34,26 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 		}
 	}
 
-	let sizeCls = '';
+	let sizeCls = ''
 	switch (size) {
 		case 'large':
-			sizeCls = 'lg';
-			break;
+			sizeCls = 'lg'
+			break
 		case 'small':
-			sizeCls = 'sm';
-			break;
+			sizeCls = 'sm'
+			break
 		default:
-			break;
+			break
 	}
 
-	const prefixCls = 'awesome-btn';
+	const prefixCls = 'awesome-btn'
 
 	const classes = classNames(prefixCls, className, {
 		[`${prefixCls}-${sizeCls}`]: sizeCls,
-	});
+	})
 
 	return (
-		<button type={htmlType}
-						className={classes}
-						onClick={handleClick} {...rest}>
+		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
 			{children}
 		</button>
 	)
