@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Button from '../button'
+import '../style/index.scss'
 
 const handleClicked = () => console.log('Button Clicked')
 
@@ -12,5 +13,11 @@ export const disabledButton = () => <Button disabled>Disabled Button</Button>
 export const htmlTypeButton = () => (
 	<Button htmlType="reset">Reset Button</Button>
 )
+
+export const smallSizeButton = () => <Button size="small">Small</Button>
+
+export const middleSizeButton = () => <Button size="middle">Default</Button>
+
+export const largeSizeButton = () => <Button size="large">Large</Button>
 
 export default {title: 'Button'}

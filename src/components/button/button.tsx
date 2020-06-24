@@ -1,10 +1,15 @@
 import * as React from 'react'
+import classNames from 'classnames'
+
+export type ButtonHTMLType = 'submit' | 'button' | 'reset'
+
+export type SizeType = 'small' | 'middle' | 'large'
 
 export interface BaseButtonProps {
 	children?: React.ReactNode
+	size?: SizeType
+	className?: string
 }
-
-export type ButtonHTMLType = 'submit' | 'button' | 'reset'
 
 export type NativeButtonProps = {
 	onClick?: React.MouseEventHandler<HTMLElement>
@@ -15,7 +20,7 @@ export type NativeButtonProps = {
 export type ButtonProps = NativeButtonProps
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
-	const {children, htmlType, ...rest} = props
+	const {children, htmlType, size, className, ...rest} = props
 
 	const handleClick = (
 		e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
@@ -29,8 +34,26 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 		}
 	}
 
+	let sizeCls = ''
+	switch (size) {
+		case 'large':
+			sizeCls = 'lg'
+			break
+		case 'small':
+			sizeCls = 'sm'
+			break
+		default:
+			break
+	}
+
+	const prefixCls = 'awesome-btn'
+
+	const classes = classNames(prefixCls, className, {
+		[`${prefixCls}-${sizeCls}`]: sizeCls,
+	})
+
 	return (
-		<button type={htmlType} onClick={handleClick} {...rest}>
+		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
 			{children}
 		</button>
 	)

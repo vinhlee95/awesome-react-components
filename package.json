@@ -28,6 +28,7 @@
 		]
 	},
 	"dependencies": {
+		"classnames": "^2.2.6",
 		"react": "16.13.1",
 		"react-dom": "16.13.1"
 	},
@@ -40,10 +41,14 @@
 		"@types/react": "16.9.36",
 		"@types/react-dom": "16.9.8",
 		"babel-loader": "8.1.0",
+		"css-loader": "3.6.0",
 		"husky": "4.2.5",
 		"lint-staged": "10.2.10",
 		"parcel-bundler": "1.12.4",
 		"prettier": "2.0.5",
+		"sass": "^1.26.8",
+		"sass-loader": "8.0.2",
+		"style-loader": "1.2.1",
 		"tslint": "6.1.2",
 		"tslint-config-prettier": "1.18.0",
 		"tslint-plugin-prettier": "2.3.0",
