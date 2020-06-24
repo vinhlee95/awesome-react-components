@@ -149,6 +149,10 @@ $btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 $btn-primary-color: #fff;
 $btn-primary-bg: $primary-color;
 
+$btn-ghost-color: $text-color;
+$btn-ghost-bg: transparent;
+$btn-ghost-border: $border-color-base;
+
 $btn-default-color: $text-color;
 $btn-default-bg: $component-background;
 $btn-default-border: $border-color-base;

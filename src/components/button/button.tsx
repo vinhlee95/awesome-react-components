@@ -4,10 +4,18 @@ import classNames from 'classnames'
 export type ButtonHTMLType = 'submit' | 'button' | 'reset'
 
 export type SizeType = 'small' | 'middle' | 'large'
+export type ButtonType =
+	| 'default'
+	| 'primary'
+	| 'ghost'
+	| 'dashed'
+	| 'link'
+	| 'text'
 
 export interface BaseButtonProps {
 	children?: React.ReactNode
 	size?: SizeType
+	type?: ButtonType
 	className?: string
 }
 
@@ -20,7 +28,7 @@ export type NativeButtonProps = {
 export type ButtonProps = NativeButtonProps
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
-	const {children, htmlType, size, className, ...rest} = props
+	const {children, htmlType, size, type, className, ...rest} = props
 
 	const handleClick = (
 		e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
@@ -50,6 +58,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 
 	const classes = classNames(prefixCls, className, {
 		[`${prefixCls}-${sizeCls}`]: sizeCls,
+		[`${prefixCls}-${type}`]: type,
 	})
 
 	return (

@@ -1,5 +1,4 @@
 @import "mixin";
-@import '../../../styles/index.scss';
 
 $btn-prefix-cls: '#{$awesome-prefix}-btn';
 
@@ -7,4 +6,25 @@ $btn-prefix-cls: '#{$awesome-prefix}-btn';
   line-height: $line-height-base;
 
   @include btn;
+
+  &-primary {
+    @include btn-primary;
+  }
+
+  &-ghost {
+    @include btn-ghost;
+  }
+
+  &-dashed {
+    @include btn-dashed;
+  }
+
+
+  &-link {
+    @include btn-link;
+  }
+
+  &-text {
+    @include btn-text;
+  }
 }
