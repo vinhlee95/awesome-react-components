@@ -17,6 +17,7 @@ export interface BaseButtonProps {
 	size?: SizeType
 	type?: ButtonType
 	className?: string
+	loading?: boolean
 }
 
 export type NativeButtonProps = {
@@ -28,12 +29,16 @@ export type NativeButtonProps = {
 export type ButtonProps = NativeButtonProps
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
-	const {children, htmlType, size, type, className, ...rest} = props
+	const {children, htmlType, size, loading, type, className, ...rest} = props
 
 	const handleClick = (
 		e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
 	) => {
 		const {onClick} = props
+
+		if (loading) {
+			return
+		}
 
 		if (onClick) {
 			;(onClick as React.MouseEventHandler<
@@ -59,11 +64,15 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 	const classes = classNames(prefixCls, className, {
 		[`${prefixCls}-${sizeCls}`]: sizeCls,
 		[`${prefixCls}-${type}`]: type,
+		[`${prefixCls}-loading`]: loading,
 	})
+
+	const iconNode = loading ? 'loading' : null
 
 	return (
 		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
 			{children}
+			{iconNode}
 		</button>
 	)
 }

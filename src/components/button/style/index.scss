@@ -27,4 +27,15 @@ $btn-prefix-cls: '#{$awesome-prefix}-btn';
   &-text {
     @include btn-text;
   }
+
+  &-loading {
+    position: relative;
+    &:not([disabled]) {
+      pointer-events: none;
+    }
+
+    &::before {
+      display: block;
+    }
+  }
 }

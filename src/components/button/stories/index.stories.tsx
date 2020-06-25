@@ -37,4 +37,10 @@ export const typeButton = () => (
 	</>
 )
 
+export const loadingButton = () => (
+	<>
+		<Button loading={true}>Default</Button>
+	</>
+)
+
 export default {title: 'Button'}
