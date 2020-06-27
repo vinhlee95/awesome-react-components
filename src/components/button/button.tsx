@@ -1,5 +1,6 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import {LoadingOutlined} from '@ant-design/icons'
 
 export type ButtonHTMLType = 'submit' | 'button' | 'reset'
 
@@ -18,6 +19,7 @@ export interface BaseButtonProps {
 	type?: ButtonType
 	className?: string
 	loading?: boolean
+	icon?: React.ReactNode
 }
 
 export type NativeButtonProps = {
@@ -29,7 +31,16 @@ export type NativeButtonProps = {
 export type ButtonProps = NativeButtonProps
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
-	const {children, htmlType, size, loading, type, className, ...rest} = props
+	const {
+		children,
+		htmlType,
+		size,
+		loading,
+		type,
+		className,
+		icon,
+		...rest
+	} = props
 
 	const handleClick = (
 		e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
@@ -45,6 +56,19 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 				HTMLButtonElement | HTMLAnchorElement
 			>)(e)
 		}
+	}
+
+	const renderIcon = () => {
+		let iconNode = null
+		if (loading) {
+			iconNode = <LoadingOutlined />
+		}
+
+		if (icon) {
+			iconNode = icon
+		}
+
+		return iconNode ? <span className="icon">{iconNode}</span> : null
 	}
 
 	let sizeCls = ''
@@ -67,12 +91,10 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 		[`${prefixCls}-loading`]: loading,
 	})
 
-	const iconNode = loading ? 'loading' : null
-
 	return (
 		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
+			{renderIcon()}
 			{children}
-			{iconNode}
 		</button>
 	)
 }
