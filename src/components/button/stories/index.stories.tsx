@@ -51,4 +51,20 @@ export const iconButton = () => (
 	</>
 )
 
+export const linkButton = () => (
+	<>
+		<Button
+			type="link"
+			href="https://www.google.com"
+			target="_blank"
+			icon={<SearchOutlined />}
+		>
+			Google
+		</Button>
+		<Button disabled type="link">
+			YouTube
+		</Button>
+	</>
+)
+
 export default {title: 'Button'}

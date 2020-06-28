@@ -118,6 +118,7 @@
 @mixin btn-link() {
   @include button-variant-other($link-color, transparent, transparent);
   box-shadow: none;
+  text-decoration: none;
   &:hover {
     background: $btn-link-hover-bg;
   }

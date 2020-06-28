@@ -22,13 +22,20 @@ export interface BaseButtonProps {
 	icon?: React.ReactNode
 }
 
+export type AnchorButtonProps = {
+	href: string
+	target?: string
+	onClick?: React.MouseEventHandler<HTMLElement>
+} & BaseButtonProps &
+	Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>
+
 export type NativeButtonProps = {
 	onClick?: React.MouseEventHandler<HTMLElement>
 	htmlType?: ButtonHTMLType
 } & BaseButtonProps &
 	Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>
 
-export type ButtonProps = NativeButtonProps
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
 	const {
@@ -39,6 +46,8 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 		type,
 		className,
 		icon,
+		href,
+		target,
 		...rest
 	} = props
 
@@ -82,6 +91,15 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 
 	const iconNode =
 		icon && !loading ? icon : loading ? <LoadingOutlined /> : null
+
+	if (href) {
+		return (
+			<a className={classes} href={href} target={target} {...rest}>
+				<span className={`${prefixCls}-icon`}>{iconNode}</span>
+				{children}
+			</a>
+		)
+	}
 
 	return (
 		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
