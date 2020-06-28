@@ -96,10 +96,6 @@
   &-sm {
     @include button-size($btn-height-sm, $btn-padding-horizontal-sm, $btn-font-size-sm, $btn-border-radius-sm);
   }
-
-  .icon {
-    margin-right: $margin-xss;
-  }
 }
 
 // primary button style

@@ -1,6 +1,7 @@
 @import "mixin";
 
 $btn-prefix-cls: '#{$awesome-prefix}-btn';
+$btn-icon-prefix-cls: '#{$awesome-prefix}-btn-icon';
 
 .#{$btn-prefix-cls} {
   line-height: $line-height-base;
@@ -37,5 +38,13 @@ $btn-prefix-cls: '#{$awesome-prefix}-btn';
     &::before {
       display: block;
     }
+  }
+
+  &-icon-only {
+    vertical-align: -0.5px;
+  }
+
+  span.#{$btn-icon-prefix-cls} {
+    margin-right: $margin-xs;
   }
 }

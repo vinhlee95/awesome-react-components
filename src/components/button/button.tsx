@@ -58,19 +58,6 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 		}
 	}
 
-	const renderIcon = () => {
-		let iconNode = null
-		if (loading) {
-			iconNode = <LoadingOutlined />
-		}
-
-		if (icon) {
-			iconNode = icon
-		}
-
-		return iconNode ? <span className="icon">{iconNode}</span> : null
-	}
-
 	let sizeCls = ''
 	switch (size) {
 		case 'large':
@@ -83,17 +70,21 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 			break
 	}
 
+	const iconType = loading ? 'loading' : icon
 	const prefixCls = 'awesome-btn'
 
 	const classes = classNames(prefixCls, className, {
 		[`${prefixCls}-${sizeCls}`]: sizeCls,
 		[`${prefixCls}-${type}`]: type,
 		[`${prefixCls}-loading`]: loading,
+		[`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
 	})
+
+	const iconNode = icon && !loading ? icon : <LoadingOutlined />
 
 	return (
 		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
-			{renderIcon()}
+			<span className={`${prefixCls}-icon`}>{iconNode}</span>
 			{children}
 		</button>
 	)
