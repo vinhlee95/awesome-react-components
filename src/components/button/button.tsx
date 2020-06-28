@@ -12,10 +12,12 @@ export type ButtonType =
 	| 'dashed'
 	| 'link'
 	| 'text'
+export type ButtonShape = 'circle' | 'round'
 
 export interface BaseButtonProps {
 	children?: React.ReactNode
 	size?: SizeType
+	shape?: ButtonShape
 	type?: ButtonType
 	className?: string
 	loading?: boolean
@@ -42,6 +44,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 		children,
 		htmlType,
 		size,
+		shape,
 		loading,
 		type,
 		className,
@@ -85,6 +88,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 	const classes = classNames(prefixCls, className, {
 		[`${prefixCls}-${sizeCls}`]: sizeCls,
 		[`${prefixCls}-${type}`]: type,
+		[`${prefixCls}-${shape}`]: shape,
 		[`${prefixCls}-loading`]: loading,
 		[`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
 	})
@@ -95,7 +99,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 	if (href) {
 		return (
 			<a className={classes} href={href} target={target} {...rest}>
-				<span className={`${prefixCls}-icon`}>{iconNode}</span>
+				{iconNode && <span className={`${prefixCls}-icon`}>{iconNode}</span>}
 				{children}
 			</a>
 		)
@@ -103,7 +107,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 
 	return (
 		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
-			<span className={`${prefixCls}-icon`}>{iconNode}</span>
+			{iconNode && <span className={`${prefixCls}-icon`}>{iconNode}</span>}
 			{children}
 		</button>
 	)
