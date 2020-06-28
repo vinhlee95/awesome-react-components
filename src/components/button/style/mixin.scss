@@ -145,3 +145,35 @@
 
   @include button-disabled($disabled-color, transparent, transparent);
 }
+
+// round button
+@mixin btn-round($btnClassName) {
+  @include button-size($btn-circle-size, $btn-circle-size / 2, $font-size-base, $btn-circle-size);
+
+  &.#{$btnClassName}-lg {
+    @include button-size($btn-circle-size-lg, $btn-circle-size-lg / 2, $btn-font-size-lg, $btn-circle-size-lg);
+  }
+
+  &.#{$btnClassName}-sm {
+    @include button-size($btn-circle-size-sm, $btn-circle-size-sm / 2, $font-size-base, $btn-circle-size-sm);
+  }
+}
+
+// circle button: the content only contains icon
+@mixin btn-circle($btnClassName) {
+  min-width: $btn-height-base;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  border-radius: 50%;
+
+  &.#{$btnClassName}-lg {
+    min-width: $btn-height-lg;
+    border-radius: 50%;
+  }
+
+  &.#{$btnClassName}-sm {
+    min-width: $btn-height-sm;
+    border-radius: 50%;
+  }
+}

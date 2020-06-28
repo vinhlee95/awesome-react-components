@@ -44,7 +44,17 @@ $btn-icon-prefix-cls: '#{$awesome-prefix}-btn-icon';
     vertical-align: -0.5px;
   }
 
-  span.#{$btn-icon-prefix-cls} {
-    margin-right: $margin-xs;
+  &-round {
+    @include btn-round($btn-prefix-cls)
+  }
+
+  &-circle {
+    @include btn-circle($btn-prefix-cls)
+  }
+
+  &:not(&-icon-only) {
+    span.#{$btn-icon-prefix-cls} {
+      margin-right: $margin-xs;
+    }
   }
 }

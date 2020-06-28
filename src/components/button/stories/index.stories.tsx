@@ -1,5 +1,9 @@
 import * as React from 'react'
-import {SearchOutlined, DeleteOutlined} from '@ant-design/icons'
+import {
+	SearchOutlined,
+	DeleteOutlined,
+	CloudDownloadOutlined,
+} from '@ant-design/icons'
 import Button from '../button'
 import '../../../styles/index.scss'
 
@@ -64,6 +68,16 @@ export const linkButton = () => (
 		<Button disabled type="link">
 			YouTube
 		</Button>
+	</>
+)
+
+export const shapeButtons = () => (
+	<>
+		<Button shape="round" size="large">
+			Round
+		</Button>
+
+		<Button shape="circle" size="large" icon={<CloudDownloadOutlined />} />
 	</>
 )
 
