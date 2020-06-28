@@ -80,7 +80,8 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 		[`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
 	})
 
-	const iconNode = icon && !loading ? icon : <LoadingOutlined />
+	const iconNode =
+		icon && !loading ? icon : loading ? <LoadingOutlined /> : null
 
 	return (
 		<button type={htmlType} className={classes} onClick={handleClick} {...rest}>
