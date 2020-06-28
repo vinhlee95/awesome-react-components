@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {SearchOutlined, DeleteOutlined} from '@ant-design/icons'
 import Button from '../button'
 import '../../../styles/index.scss'
 
@@ -40,6 +41,13 @@ export const typeButton = () => (
 export const loadingButton = () => (
 	<>
 		<Button loading={true}>Default</Button>
+	</>
+)
+
+export const iconButton = () => (
+	<>
+		<Button icon={<SearchOutlined />}>Search</Button>
+		<Button icon={<DeleteOutlined />} />
 	</>
 )
 
