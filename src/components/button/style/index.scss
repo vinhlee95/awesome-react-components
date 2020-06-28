@@ -52,7 +52,9 @@ $btn-icon-prefix-cls: '#{$awesome-prefix}-btn-icon';
     @include btn-circle($btn-prefix-cls)
   }
 
-  span.#{$btn-icon-prefix-cls} {
-    margin-right: $margin-xs;
+  &:not(&-icon-only) {
+    span.#{$btn-icon-prefix-cls} {
+      margin-right: $margin-xs;
+    }
   }
 }
