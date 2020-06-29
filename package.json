@@ -14,7 +14,7 @@
 		"lint": "tslint --project tsconfig.json",
 		"lint:fix": "tslint --fix --project tsconfig.json",
 		"types-check": "tsc",
-		"format": "prettier \"**/*.+(js|jsx|json|ts|tsx|md|mdx|graphql)\" --write"
+		"format": "prettier \"**/*.+(js|jsx|json|ts|tsx|md|mdx|graphql|scss|css)\" --write"
 	},
 	"husky": {
 		"hooks": {

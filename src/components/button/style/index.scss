@@ -1,60 +1,59 @@
-@import "mixin";
+@import 'mixin';
 
 $btn-prefix-cls: '#{$awesome-prefix}-btn';
 $btn-icon-prefix-cls: '#{$awesome-prefix}-btn-icon';
 
 .#{$btn-prefix-cls} {
-  line-height: $line-height-base;
+	line-height: $line-height-base;
 
-  @include btn;
+	@include btn;
 
-  &-primary {
-    @include btn-primary;
-  }
+	&-primary {
+		@include btn-primary;
+	}
 
-  &-ghost {
-    @include btn-ghost;
-  }
+	&-ghost {
+		@include btn-ghost;
+	}
 
-  &-dashed {
-    @include btn-dashed;
-  }
+	&-dashed {
+		@include btn-dashed;
+	}
 
+	&-link {
+		@include btn-link;
+	}
 
-  &-link {
-    @include btn-link;
-  }
+	&-text {
+		@include btn-text;
+	}
 
-  &-text {
-    @include btn-text;
-  }
+	&-loading {
+		position: relative;
+		&:not([disabled]) {
+			pointer-events: none;
+		}
 
-  &-loading {
-    position: relative;
-    &:not([disabled]) {
-      pointer-events: none;
-    }
+		&::before {
+			display: block;
+		}
+	}
 
-    &::before {
-      display: block;
-    }
-  }
+	&-icon-only {
+		vertical-align: -0.5px;
+	}
 
-  &-icon-only {
-    vertical-align: -0.5px;
-  }
+	&-round {
+		@include btn-round($btn-prefix-cls);
+	}
 
-  &-round {
-    @include btn-round($btn-prefix-cls)
-  }
+	&-circle {
+		@include btn-circle($btn-prefix-cls);
+	}
 
-  &-circle {
-    @include btn-circle($btn-prefix-cls)
-  }
-
-  &:not(&-icon-only) {
-    span.#{$btn-icon-prefix-cls} {
-      margin-right: $margin-xs;
-    }
-  }
+	&:not(&-icon-only) {
+		span.#{$btn-icon-prefix-cls} {
+			margin-right: $margin-xs;
+		}
+	}
 }
