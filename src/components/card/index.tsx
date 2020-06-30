@@ -1,16 +1,36 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-interface CardProps {
+interface CardProps
+	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
 	title?: React.ReactNode
 	extra?: React.ReactNode
 	children?: React.ReactNode
 	className?: string
 	bordered?: boolean
+	actions?: React.ReactNode[]
+}
+
+function getAction(actions: React.ReactNode[]) {
+	const actionList = actions.map((action, index) => (
+		// eslint-disable-next-line react/no-array-index-key
+		<li style={{width: `${100 / actions.length}%`}} key={`action-${index}`}>
+			<span>{action}</span>
+		</li>
+	))
+	return actionList
 }
 
 const Card: React.FunctionComponent<CardProps> = props => {
-	const {title, extra, children, className, bordered = true, ...rest} = props
+	const {
+		title,
+		extra,
+		children,
+		className,
+		bordered = true,
+		actions,
+		...rest
+	} = props
 	const prefixCls = 'awesome-card'
 	const classes = classNames(prefixCls, className, {
 		[`${prefixCls}-bordered`]: bordered,
@@ -30,10 +50,16 @@ const Card: React.FunctionComponent<CardProps> = props => {
 
 	const body = <div className={`${prefixCls}-body`}>{children}</div>
 
+	const actionDom =
+		actions && actions.length ? (
+			<ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
+		) : null
+
 	return (
 		<div className={classes} {...rest}>
 			{head}
 			{body}
+			{actionDom}
 		</div>
 	)
 }
