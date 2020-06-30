@@ -78,23 +78,22 @@ $card-action-icon-size: 16px;
 
 				a:not(.#{ant-prefix}-btn),
 				> .anticon {
-				display: inline-block;
-				width: 100%;
-				color: $text-color-secondary;
-				line-height: 22px;
-				transition: color 0.3s;
+					display: inline-block;
+					width: 100%;
+					color: $text-color-secondary;
+					line-height: 22px;
+					transition: color 0.3s;
 
-				&:hover {
-					color: $primary-color;
+					&:hover {
+						color: $primary-color;
+					}
 				}
-			}
 
 				> .anticon {
 					font-size: $card-action-icon-size;
 					line-height: 22px;
 				}
 			}
-
 
 			&:not(:last-child) {
 				border-right: $border-width-base $border-style-base $border-color-split;

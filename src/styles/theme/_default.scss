@@ -112,8 +112,12 @@ $outline-width: 2px;
 $outline-color: $primary-color;
 $outline-rgba: 20%;
 
-$background-color-light: hsl(0, 0, 98%); // background of header and selected item
-$background-color-base: hsl(0, 0, 96%);; // Default grey background color
+$background-color-light: hsl(
+	0,
+	0,
+	98%
+); // background of header and selected item
+$background-color-base: hsl(0, 0, 96%); // Default grey background color
 
 // Disabled states
 $disabled-color: rgba(#000, 25%);
@@ -217,4 +221,3 @@ $card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
 $card-radius: $border-radius-base * 4;
 $card-head-tabs-margin-bottom: -17px;
 $card-head-extra-color: $text-color;
-

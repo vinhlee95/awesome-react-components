@@ -1,13 +1,13 @@
 // mixins for clearfix
 // ------------------------
 @mixin clearfix() {
-  &::before {
-    display: table;
-    content: '';
-  }
-  &::after {
-    display: table;
-    clear: both;
-    content: '';
-  }
+	&::before {
+		display: table;
+		content: '';
+	}
+	&::after {
+		display: table;
+		clear: both;
+		content: '';
+	}
 }
