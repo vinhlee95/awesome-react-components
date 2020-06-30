@@ -1,0 +1,49 @@
+$card-prefix-cls: '#{$awesome-prefix}-card';
+
+.#{$card-prefix-cls} {
+	position: relative;
+	background: $card-background;
+	border-radius: $card-radius;
+
+	&-bordered {
+		border: $border-width-base $border-style-base $border-color-split;
+	}
+
+	&-head {
+		min-height: $card-head-height;
+		padding: 0 $card-padding-base;
+		color: $card-head-color;
+		font-weight: 500;
+		font-size: $card-head-font-size;
+		background: $card-head-background;
+		border-bottom: $border-width-base $border-style-base $border-color-split;
+		border-radius: $card-radius $card-radius 0 0;
+
+		&-wrapper {
+			display: flex;
+			align-items: center;
+		}
+
+		&-title {
+			display: inline-block;
+			flex: 1;
+			padding: $card-head-padding 0;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
+
+	&-extra {
+		float: right;
+		margin-left: auto;
+		padding: $card-head-padding 0;
+		color: $card-head-extra-color;
+		font-weight: normal;
+		font-size: $font-size-base;
+	}
+
+	&-body {
+		padding: $card-padding-base;
+	}
+}
