@@ -1,7 +1,8 @@
 $awesome-prefix: 'awesome';
 
+@import 'core/global';
 @import 'theme/default';
+@import 'mixins/clearfix';
 
 @import '../components/button/style/index';
 @import '../components/card/style/index';
-
