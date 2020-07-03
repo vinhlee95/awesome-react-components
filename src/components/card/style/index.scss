@@ -100,4 +100,40 @@ $card-action-icon-size: 16px;
 			}
 		}
 	}
+
+	&-meta {
+		margin: -4px 0;
+		@include clearfix;
+
+		&-avatar {
+			float: left;
+			padding-right: 16px;
+
+			.#{$card-prefix-cls}-rtl & {
+								   float: right;
+								   padding-right: 0;
+								   padding-left: 16px;
+			}
+		}
+
+		&-detail {
+			overflow: hidden;
+			> div:not(:last-child) {
+				margin-bottom: $margin-xs;
+			}
+		}
+
+		&-title {
+			overflow: hidden;
+			color: $card-head-color;
+			font-weight: 500;
+			font-size: $font-size-lg;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		&-description {
+			color: $text-color-secondary;
+		}
+	}
 }

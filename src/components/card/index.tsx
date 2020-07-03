@@ -1,5 +1,6 @@
 import * as React from 'react'
 import classNames from 'classnames'
+import Meta from './Meta'
 
 interface CardProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -21,7 +22,13 @@ function getAction(actions: React.ReactNode[]) {
 	return actionList
 }
 
-const Card: React.FunctionComponent<CardProps> = props => {
+export {CardMetaProps} from './Meta'
+
+export interface CardInterface extends React.FC<CardProps> {
+	Meta: typeof Meta
+}
+
+const Card: CardInterface = props => {
 	const {
 		title,
 		extra,
@@ -63,5 +70,7 @@ const Card: React.FunctionComponent<CardProps> = props => {
 		</div>
 	)
 }
+
+Card.Meta = Meta
 
 export default Card
