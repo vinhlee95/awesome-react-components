@@ -2,12 +2,18 @@ import * as React from 'react'
 import classNames from 'classnames'
 import Meta from './Meta'
 
+export enum CardSize {
+	Default = 'default',
+	Small = 'small',
+}
+
 interface CardProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
 	title?: React.ReactNode
 	extra?: React.ReactNode
 	children?: React.ReactNode
 	className?: string
+	size?: CardSize
 	bordered?: boolean
 	actions?: React.ReactNode[]
 }
@@ -34,6 +40,7 @@ const Card: CardInterface = props => {
 		extra,
 		children,
 		className,
+		size = CardSize.Default,
 		bordered = true,
 		actions,
 		...rest
@@ -41,6 +48,7 @@ const Card: CardInterface = props => {
 	const prefixCls = 'awesome-card'
 	const classes = classNames(prefixCls, className, {
 		[`${prefixCls}-bordered`]: bordered,
+		[`${prefixCls}-sm`]: size === CardSize.Small,
 	})
 
 	let head: React.ReactNode

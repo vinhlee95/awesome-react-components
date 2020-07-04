@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Card from '../index'
+import Card, {CardSize} from '../index'
 import Button from '../../button/button'
 import '../../../styles/index.scss'
 import {
@@ -9,16 +9,27 @@ import {
 } from '@ant-design/icons/lib'
 const {Meta} = Card
 
-const Wrapper = ({children}) => (
-	<div style={{width: 400, height: 400}}>{children}</div>
+const Wrapper = ({children, style = {}}) => (
+	<div style={{width: 400, height: 'auto', ...style}}>{children}</div>
 )
 
 export const basicCard = () => (
-	<Wrapper>
-		<Card title="Card title" extra={<Button type="link">More</Button>}>
-			<div>Card content</div>
-		</Card>
-	</Wrapper>
+	<>
+		<Wrapper style={{marginBottom: 16}}>
+			<Card title="Default card" extra={<Button type="link">More</Button>}>
+				<div>Card content</div>
+			</Card>
+		</Wrapper>
+		<Wrapper>
+			<Card
+				title="Small card"
+				size={CardSize.Small}
+				extra={<Button type="link">More</Button>}
+			>
+				<div>Card content</div>
+			</Card>
+		</Wrapper>
+	</>
 )
 
 export const actionsCard = () => (
