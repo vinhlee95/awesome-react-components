@@ -7,6 +7,7 @@ import {
 	EllipsisOutlined,
 	SettingOutlined,
 } from '@ant-design/icons/lib'
+const {Meta} = Card
 
 const Wrapper = ({children}) => (
 	<div style={{width: 400, height: 400}}>{children}</div>
@@ -31,6 +32,23 @@ export const actionsCard = () => (
 			title="Card title"
 			extra={<Button type="link">More</Button>}
 		>
+			<div>Card content</div>
+		</Card>
+	</Wrapper>
+)
+
+export const metaCard = () => (
+	<Wrapper>
+		<Card
+			actions={[
+				<SettingOutlined key="setting" />,
+				<EditOutlined key="edit" />,
+				<EllipsisOutlined key="ellipsis" />,
+			]}
+			title="Card title"
+			extra={<Button type="link">More</Button>}
+		>
+			<Meta title="Europe Street beat" description="www.instagram.com" />
 			<div>Card content</div>
 		</Card>
 	</Wrapper>
