@@ -45,6 +45,19 @@ $card-action-icon-size: 16px;
 		font-size: $font-size-base;
 	}
 
+	&-cover {
+		margin: 0 -1px;
+
+    > * {
+      display: block;
+      width: 100%;
+    }
+
+    img {
+      border-radius: $card-radius $card-radius 0 0;
+    }
+  }
+
 	&-body {
 		padding: $card-padding-base;
 	}

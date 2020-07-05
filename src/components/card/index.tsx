@@ -14,6 +14,7 @@ interface CardProps
 	children?: React.ReactNode
 	className?: string
 	size?: CardSize
+	cover?: React.ReactNode
 	bordered?: boolean
 	actions?: React.ReactNode[]
 }
@@ -42,6 +43,7 @@ const Card: CardInterface = props => {
 		className,
 		size = CardSize.Default,
 		bordered = true,
+		cover,
 		actions,
 		...rest
 	} = props
@@ -69,10 +71,14 @@ const Card: CardInterface = props => {
 		actions && actions.length ? (
 			<ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
 		) : null
+	const coverDom = cover ? (
+		<div className={`${prefixCls}-cover`}>{cover}</div>
+	) : null
 
 	return (
 		<div className={classes} {...rest}>
 			{head}
+			{coverDom}
 			{body}
 			{actionDom}
 		</div>
