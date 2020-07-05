@@ -65,4 +65,19 @@ export const metaCard = () => (
 	</Wrapper>
 )
 
+export const coverCard = () => (
+	<Wrapper>
+		<Card
+			cover={
+				<img
+					alt="card cover"
+					src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+				/>
+			}
+		>
+			<Meta title="Card title" description="This is the description" />
+		</Card>
+	</Wrapper>
+)
+
 export default {title: 'Card'}
