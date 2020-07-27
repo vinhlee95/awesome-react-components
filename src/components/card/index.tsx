@@ -11,12 +11,16 @@ interface CardProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
 	title?: React.ReactNode
 	extra?: React.ReactNode
+	loading?: boolean
 	children?: React.ReactNode
 	className?: string
 	size?: CardSize
 	cover?: React.ReactNode
 	bordered?: boolean
 	actions?: React.ReactNode[]
+	headStyle?: React.CSSProperties
+	bodyStyle?: React.CSSProperties
+	style?: React.CSSProperties
 }
 
 function getAction(actions: React.ReactNode[]) {
@@ -43,8 +47,11 @@ const Card: CardInterface = props => {
 		className,
 		size = CardSize.Default,
 		bordered = true,
+		loading,
 		cover,
 		actions,
+		headStyle = {},
+		bodyStyle = {},
 		...rest
 	} = props
 	const prefixCls = 'awesome-card'
@@ -56,7 +63,7 @@ const Card: CardInterface = props => {
 	let head: React.ReactNode
 	if (title) {
 		head = (
-			<div className={`${prefixCls}-head`}>
+			<div className={`${prefixCls}-head`} style={headStyle}>
 				<div className={`${prefixCls}-head-wrapper`}>
 					{title && <div className={`${prefixCls}-head-title`}>{title}</div>}
 					{extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
@@ -65,7 +72,24 @@ const Card: CardInterface = props => {
 		)
 	}
 
-	const body = <div className={`${prefixCls}-body`}>{children}</div>
+	const loadingBlockStyle =
+		bodyStyle.padding === 0 || bodyStyle.padding === '0px'
+			? {padding: 24}
+			: undefined
+
+	const block = <div className={`${prefixCls}-loading-block`} />
+
+	const loadingBlock = (
+		<div className={`${prefixCls}-loading-content`} style={loadingBlockStyle}>
+			<div>{block}</div>
+		</div>
+	)
+
+	const body = (
+		<div className={`${prefixCls}-body`} style={bodyStyle}>
+			{loading ? loadingBlock : children}
+		</div>
+	)
 
 	const actionDom =
 		actions && actions.length ? (
