@@ -80,4 +80,28 @@ export const coverCard = () => (
 	</Wrapper>
 )
 
+export const loadingCard = () => (
+	<>
+		<Wrapper style={{marginBottom: 16}}>
+			<Card
+				loading={true}
+				title="Default card"
+				extra={<Button type="link">More</Button>}
+			>
+				<div>Card content</div>
+			</Card>
+		</Wrapper>
+		<Wrapper>
+			<Card
+				title="Small card"
+				loading={true}
+				size={CardSize.Small}
+				extra={<Button type="link">More</Button>}
+			>
+				<div>Card content</div>
+			</Card>
+		</Wrapper>
+	</>
+)
+
 export default {title: 'Card'}

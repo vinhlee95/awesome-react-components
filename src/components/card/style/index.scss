@@ -2,6 +2,9 @@ $card-prefix-cls: '#{$awesome-prefix}-card';
 
 $card-action-icon-size: 16px;
 
+$gradient-min: rgba($card-skeleton-bg, 20%);
+$gradient-max: rgba($card-skeleton-bg, 40%);
+
 .#{$card-prefix-cls} {
 	position: relative;
 	background: $card-background;
@@ -148,6 +151,38 @@ $card-action-icon-size: 16px;
 		&-description {
 			color: $text-color-secondary;
 		}
+	}
+
+	&-loading {
+		overflow: hidden;
+	}
+
+	&-loading &-body {
+		user-select: none;
+	}
+
+	&-loading-content {
+		p {
+			margin: 0;
+		}
+	}
+
+	&-loading-block {
+		height: 14px;
+		margin: 4px 0;
+		background: linear-gradient(90deg, $gradient-min, $gradient-max, $gradient-min);
+		background-size: 600% 600%;
+		border-radius: $card-radius;
+	}
+}
+
+@keyframes card-loading {
+	0%,
+	100% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
 	}
 }
 
